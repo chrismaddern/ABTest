@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>server_base_url</key>
+	<string>http://www.chrismaddern.com/abtest/</string>
+	<key>application_token</key>
+	<string>com.chrismaddern.abtestsampleapp</string>
+	<key>minimum_seconds_between_fetch</key>
+	<string>10</string>
+	<key>fix_case_per_device</key>
+	<true/>
+</dict>
+</plist>
