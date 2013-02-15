@@ -20,6 +20,14 @@
 #define TEST_CASES_FIXED_STORE_KEY @"com.chrismaddern.abtestlibrary.testcasesfixedkey"
 #define TEST_CASES_LAST_SUCCESFULLY_REFRESHED_KEY @"com.chrismaddern.abtestlibrary.lastsuccessfetchkey"
 
+@interface ABTestManager()
+
+- (BOOL) shouldRefreshTestData;
+- (void) updateLastSyncrhonizedDate;
+- (void) saveTestCases;
+
+@end
+
 @implementation ABTestManager
 @synthesize serverBaseURL, applicationToken, shouldFixCasesForDevice, minimumRefreshSeconds, userIdentifier;
 @synthesize updateQueue, testCases, testCasesFixed, responsesForUpload;
@@ -34,9 +42,11 @@
     return testManager;
 }
 
+#pragma mark -
+#pragma mark Setup Test Manager
+
 - (id)init {
     if (self = [super init]) {
-        // set up the object here
         updateQueue = [NSOperationQueue new];
         responsesForUpload = [[NSMutableArray alloc] init];
         BOOL configurationLoaded =false;
@@ -48,7 +58,6 @@
         if(configurationLoaded){ testCasesLoaded = [self restoreTestCases]; }
         
         [self refreshTestCaseConfigurations];
-        
         [self startBackgroundUploader];
     }
     return self;
@@ -113,7 +122,7 @@
     
     if([plistDictionary objectForKey:FIX_TEST_CASES_KEY])
     {
-        // Currently, it's impossible to disable shouldFixCasesForDevice - need to implement tracking of an ABTestCase -> a ABTestCaseOutcome without having to keep the ABTestCase around as that would be messy
+        // @TODO: It's currently impossible to disable shouldFixCasesForDevice - need to implement tracking of an ABTestCase -> a ABTestCaseOutcome without having to keep the ABTestCase around as that would be messy
         shouldFixCasesForDevice = true; // [[NSNumber numberWithBool:YES] isEqualToNumber:(NSNumber*)[plistDictionary objectForKey:FIX_TEST_CASES_KEY]]?true:false;
     }
     else { configurationComplete = false; }
@@ -130,6 +139,50 @@
     }
     return configurationComplete;
 }
+
+-(void)refreshTestCaseConfigurations
+{
+    if(![self shouldRefreshTestData])
+    {
+        NSLog(@"ABTestLibrary :: Notice :: Not updating as minimum seconds have not been reached.");
+        return;
+    }
+    
+    NSString *requestURL = [NSString stringWithFormat:@"%@tests/?application=%@", serverBaseURL, applicationToken];
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestURL]];
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:updateQueue completionHandler:
+     ^(NSURLResponse *urlResponse, NSData *responseData, NSError *err)
+     {
+         // Got response from request
+         if(!(err==nil))
+         {
+             NSLog(@"ABTestLibrary :: Error retrieving test case configurations. %@", [err localizedDescription]);
+             return;
+         }
+         
+         NSError *error;
+         NSDictionary* json = [NSJSONSerialization
+                               JSONObjectWithData:responseData
+                               options:kNilOptions
+                               error:&error];
+         if([json count] > 0)
+         {
+             testCases = [NSMutableDictionary dictionaryWithDictionary:json];
+             [self saveTestCases];
+             [self updateLastSyncrhonizedDate];
+         }
+         else
+         {
+             NSLog(@"ABTestLibrary :: Received a response with 0 test cases for Application Token");
+         }
+         
+     }];
+    
+}
+
+#pragma mark -
+#pragma mark Running Tests
 
 -(BOOL)hasConfigurationForTestCase:(NSString*)testCaseIdentifier
 {
@@ -179,63 +232,6 @@
     return [optionsForTestCase objectAtIndex:selectedCase];
 }
 
--(void)refreshTestCaseConfigurations
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *lastCheckedSecondsSince1970 = [defaults objectForKey:TEST_CASES_LAST_SUCCESFULLY_REFRESHED_KEY];
-    if(lastCheckedSecondsSince1970 != nil && ((((int)[[NSDate date] timeIntervalSince1970]) - [lastCheckedSecondsSince1970 integerValue]) < [minimumRefreshSeconds integerValue]))
-    {
-        NSLog(@"ABTestLibrary :: Notice :: Not updating as minimum seconds have not been reached.");
-        return;
-    }
-    
-    NSString *requestURL = [NSString stringWithFormat:@"%@tests/?application=%@", serverBaseURL, applicationToken];
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestURL]];
-
-    [NSURLConnection sendAsynchronousRequest:req queue:updateQueue completionHandler:
-    ^(NSURLResponse *urlResponse, NSData *responseData, NSError *err)
-    {
-       // Got response from request
-        if(!(err==nil))
-        {
-            NSLog(@"ABTestLibrary :: Error retrieving test case configurations. %@", [err localizedDescription]);
-            return;
-        }
-        
-        NSError *error;
-        NSDictionary* json = [NSJSONSerialization
-                              JSONObjectWithData:responseData
-                              options:kNilOptions
-                              error:&error];
-        if([json count] > 0)
-        {
-            testCases = [NSMutableDictionary dictionaryWithDictionary:json];
-            [self saveTestCases];
-            [defaults setObject:[NSNumber numberWithInt:((int)[[NSDate date] timeIntervalSince1970])] forKey:TEST_CASES_LAST_SUCCESFULLY_REFRESHED_KEY];
-            [defaults synchronize];
-        }
-        else
-        {
-            NSLog(@"ABTestLibrary :: Received a response with 0 test cases for Application Token");
-        }
-        
-    }];
-    
-}
-
--(void)saveTestCases
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    if(testCases != nil)
-        [defaults setObject:testCases forKey:TEST_CASES_STORE_KEY];
-    
-    if(testCasesFixed != nil)
-        [defaults setObject:testCasesFixed forKey:TEST_CASES_FIXED_STORE_KEY];
-    
-    [defaults synchronize];
-}
-
 -(void)addTestOutcomeToUploadQueue:(ABTestCaseOutcome*)testCaseOutcome
 {
     [responsesForUpload addObject:testCaseOutcome];
@@ -264,7 +260,8 @@
                 [responsesForUpload addObject:currentTestCaseOutcome];
                 return;
             }
-            
+            else
+                NSLog(@"ABTestLibrary :: Reported outcome for test with identifier: %@", currentTestCaseOutcome.testCaseIdentifier);
          }];
         
         uploadAttempts++;
@@ -274,5 +271,36 @@
 - (void)dealloc {
     //Let's be greedy :)
 }
+
+#pragma mark -
+#pragma mark Helper Methods 
+
+- (BOOL) shouldRefreshTestData
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *lastCheckedSecondsSince1970 = [defaults objectForKey:TEST_CASES_LAST_SUCCESFULLY_REFRESHED_KEY];
+    return lastCheckedSecondsSince1970 != nil && ((((int)[[NSDate date] timeIntervalSince1970]) - [lastCheckedSecondsSince1970 integerValue]) > [minimumRefreshSeconds integerValue]);
+}
+
+- (void) updateLastSyncrhonizedDate
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:((int)[[NSDate date] timeIntervalSince1970])] forKey:TEST_CASES_LAST_SUCCESFULLY_REFRESHED_KEY];
+    [defaults synchronize];
+}
+
+-(void)saveTestCases
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if(testCases != nil)
+        [defaults setObject:testCases forKey:TEST_CASES_STORE_KEY];
+    
+    if(testCasesFixed != nil)
+        [defaults setObject:testCasesFixed forKey:TEST_CASES_FIXED_STORE_KEY];
+    
+    [defaults synchronize];
+}
+
 
 @end
