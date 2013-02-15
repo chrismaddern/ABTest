@@ -13,7 +13,7 @@
 -(NSString*)describeTestCase
 {
     // Colors
-    if([self class] == [UIColor class])
+    if([self isKindOfClass:[UIColor class]])
     {
         const CGFloat *_components = CGColorGetComponents(((UIColor*)self).CGColor);
         CGFloat red     = _components[0];
@@ -23,11 +23,11 @@
         
         return [NSString stringWithFormat:@"%f,%f,%f,%f",red,green,blue,alpha];
     }
-    if([self class] == [NSString class])
+    if([self isKindOfClass:[NSString class]])
     {
         return (NSString*)self;
     }
-    if([self class] == [NSNumber class])
+    if([self isKindOfClass:[NSNumber class]])
     {
         return [NSString stringWithFormat:@"%@", self];
     }
@@ -40,11 +40,6 @@
             return [NSString stringWithFormat:@"Unknown Test Case Object - %@", [self class]];
         }
     }
-}
-
--(NSString*)describeColor:(CGColorRef)col
-{
-    
 }
 
 @end
