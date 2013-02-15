@@ -71,7 +71,7 @@
     BOOL isDir = true;
     if(![fileManager fileExistsAtPath:finalPath isDirectory:&isDir])
         if(![fileManager createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:NULL])
-            NSLog(@"Error: Create folder failed %@", finalPath);
+            NSLog(@"ABTestLibrary:: Could not create image cache folder at %@", finalPath);
     
     return finalPath;
 }

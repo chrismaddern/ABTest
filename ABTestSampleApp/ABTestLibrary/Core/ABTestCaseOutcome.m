@@ -9,6 +9,12 @@
 #import "ABTestCaseOutcome.h"
 #import "ABTestManager.h"
 
+@interface ABTestCaseOutcome()
+
+-(void)addToUploadQueue;
+
+@end
+
 @implementation ABTestCaseOutcome
 @synthesize testCaseValue,testCaseIdentifier, testCaseOutcomeResponse, sent;
 

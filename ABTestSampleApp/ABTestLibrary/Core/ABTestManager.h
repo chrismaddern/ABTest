@@ -24,10 +24,11 @@
 
 +(ABTestManager*)testManager;
 
--(BOOL)hasConfigurationForTestCase:(NSString*)testCaseIdentifier;
--(void)refreshTestCaseConfigurations;
--(id)valueForTestCase:(NSString*)testCaseIdentifier;
--(void)addTestOutcomeToUploadQueue:(ABTestCaseOutcome*)testCaseOutcome;
+-(BOOL) hasConfigurationForTestCase:(NSString*)testCaseIdentifier;
+-(void) refreshTestCaseConfigurations;
+-(id) valueForTestCase:(NSString*)testCaseIdentifier;
+-(void) addTestOutcomeToUploadQueue:(ABTestCaseOutcome*)testCaseOutcome;
+-(void) uploadAllResponses;
 
 
 @end
