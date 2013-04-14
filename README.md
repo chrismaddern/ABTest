@@ -1,5 +1,4 @@
-iOS-Split-A-B-Test-Library
-==========================
+# iOS-Split-A-B-Test-Library
 
 This is an Objective-C library for performing A-B testing in iOS Apps. Data is configured and results are collected remotely using the companion PHP Server project (https://github.com/chrismaddern/A-B-Split-Test-Server). This project contains a sql export of the state of the database to match the test app in this repository.
 
@@ -38,14 +37,14 @@ And then to report the outcome…
         andOutcomeResponse:ABPositiveResponse];
     [outcome send];
 
-**LICENSE**
+## LICENSE
 
 The iOS A/B Split Test Library is licensed under the MIT License.
 
-**CONTRIBUTIONS**
+## Contributing
 
-Contributions are very welcome. 
-
-I will be continuing to extend this - the initial work was completed in less than a day and there are a lot of shortcomings at the moment!
-
-If you have extended this in a way that you think would be useful to the community (or fixed one of the undoubtedly many bugs), please do submit a pull request! :)
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. reate new Pull Request
