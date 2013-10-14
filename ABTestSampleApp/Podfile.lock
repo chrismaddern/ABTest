@@ -1,10 +1,18 @@
 PODS:
+  - ABTest (0.0.5):
+    - OpenUDID
   - OpenUDID (1.0.0)
 
 DEPENDENCIES:
+  - ABTest (from `https://raw.github.com/chrismaddern/Specs/master/ABTest/0.0.1/ABTest.podspec`)
   - OpenUDID (~> 1.0)
 
+EXTERNAL SOURCES:
+  ABTest:
+    :podspec: https://raw.github.com/chrismaddern/Specs/master/ABTest/0.0.1/ABTest.podspec
+
 SPEC CHECKSUMS:
+  ABTest: 573c952ca84287057271b12f8362286483fff298
   OpenUDID: 13ab988776ef38dca1e2e799e961448cf83a8111
 
 COCOAPODS: 0.25.0

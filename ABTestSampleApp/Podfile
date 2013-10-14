@@ -3,5 +3,6 @@ inhibit_all_warnings!
 
 target 'ABTestSampleApp', :exclusive => true do
   pod 'OpenUDID', '~> 1.0'
+  pod 'ABTest', :podspec => 'https://raw.github.com/chrismaddern/Specs/master/ABTest/0.0.1/ABTest.podspec'
 end
 
