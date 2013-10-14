@@ -16,11 +16,11 @@ typedef enum
 
 @interface ABTestCaseOutcome : NSObject
 
-@property (nonatomic, retain) NSString* testCaseIdentifier;
+@property (nonatomic, retain) NSString *testCaseIdentifier;
 @property (nonatomic, retain) id testCaseValue;
 @property (nonatomic) ABTestCaseOutcomeResponse testCaseOutcomeResponse;
 @property (nonatomic) BOOL sent;
 
--(id)initWithTestCase:(NSString*)testId andOutcomeResponse:(ABTestCaseOutcomeResponse)response;
--(void) send;
+- (id)initWithTestCase:(NSString *)testId andOutcomeResponse:(ABTestCaseOutcomeResponse)response;
+- (void) send;
 @end

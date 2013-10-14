@@ -10,9 +10,9 @@
 
 @interface ABTestCase : NSObject
 
-@property (nonatomic, retain) NSString* testCaseIdentifier;
+@property (nonatomic, retain) NSString *testCaseIdentifier;
 @property (nonatomic, retain) id testCaseValue;
 @property (nonatomic) BOOL isTesting;
--(id)initWithTestCase:(NSString*)testCaseId andControlValue:(id)controlObject;
--(NSString*)value;
+- (id)initWithTestCase:(NSString *)testCaseId andControlValue:(id)controlObject;
+- (NSString *)value;
 @end

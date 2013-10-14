@@ -10,6 +10,6 @@
 
 @interface NSObject (ABTest)
 
--(NSString*)describeTestCase;
+- (NSString *)describeTestCase;
 
 @end

@@ -13,8 +13,7 @@
 @implementation ABTestButton
 @synthesize testCaseIdentifier, testCase, controlValue;
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -22,12 +21,10 @@
     return self;
 }
 
--(id)initWithTestName:(NSString*)testCaseId andControlValue:(NSString*)controlValueIn
-{
+- (id)initWithTestName:(NSString *)testCaseId andControlValue:(NSString *)controlValueIn {
     self = [super init];
     
-    if(self)
-    {
+    if(self) {
         [self configureButton];
         self.testCaseIdentifier = testCaseId;
         self.controlValue = controlValueIn;
@@ -35,16 +32,15 @@
         [self setTitle:[testCase value] forState:UIControlStateNormal];
         UILabel *l = self.titleLabel;
         l.textColor = [UIColor blackColor];
-        if([testCase isTesting])
-        {
+        
+        if([testCase isTesting]) {
             [self addTarget: self action: @selector(registerTestResult) forControlEvents: UIControlEventTouchUpInside];
         }
     }
     return self;
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if(self != nil)
     {
@@ -53,8 +49,7 @@
     return self;
 }
 
--(void)configureButton
-{
+- (void)configureButton {
     [self setBackgroundColor:[UIColor whiteColor]];
     self.layer.cornerRadius = 10;
     self.layer.borderWidth = 1;
@@ -64,8 +59,7 @@
     [self setBackgroundImage:[self highlightImage] forState:UIControlStateHighlighted];
 }
 
--(UIImage*)highlightImage
-{
+- (UIImage *)highlightImage {
     CGRect rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -90,8 +84,7 @@
     return img;
 }
 
--(void) setValue:(id)value forKey:(NSString *)key
-{
+- (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"testCase"])
     {
         self.testCaseIdentifier = value;
@@ -112,19 +105,16 @@
     }
 }
 
--(void)registerTestResult
-{
+- (void)registerTestResult {
     ABTestCaseOutcome *result = [[ABTestCaseOutcome alloc] initWithTestCase:testCase.testCaseIdentifier andOutcomeResponse:ABPositiveResponse];
     [result send];
 }
 
--(UIButtonType)buttonType
-{
+- (UIButtonType)buttonType {
     return UIButtonTypeRoundedRect;
 }
 
--(void)awakeFromNib
-{
+-(void)awakeFromNib {
     
 }
 

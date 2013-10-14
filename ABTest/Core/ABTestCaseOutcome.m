@@ -11,19 +11,17 @@
 
 @interface ABTestCaseOutcome()
 
--(void)addToUploadQueue;
+- (void)addToUploadQueue;
 
 @end
 
 @implementation ABTestCaseOutcome
 @synthesize testCaseValue,testCaseIdentifier, testCaseOutcomeResponse, sent;
 
--(id)initWithTestCase:(NSString*)testId andOutcomeResponse:(ABTestCaseOutcomeResponse)response
-{
+- (id)initWithTestCase:(NSString *)testId andOutcomeResponse:(ABTestCaseOutcomeResponse)response {
     self = [super init];
 
-    if(self)
-    {
+    if(self) {
         testCaseIdentifier = testId;
         testCaseOutcomeResponse = response;
         testCaseValue = [[ABTestManager testManager] valueForTestCase:testId];
@@ -32,12 +30,12 @@
     return self;
 }
 
--(void)send
+- (void)send
 {
     [self addToUploadQueue];
 }
 
--(void)addToUploadQueue
+- (void)addToUploadQueue
 {
     [[ABTestManager testManager] addTestOutcomeToUploadQueue:self];
 }

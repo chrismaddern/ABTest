@@ -11,26 +11,24 @@
 
 @implementation ABTestImageCache
 
--(BOOL)hasCachedImageWithUrl:(NSString*)url
-{
+- (BOOL)hasCachedImageWithUrl:(NSString *)url {
+    
     NSString *imgPath = [self filePathForImageAtUrl:url];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    if(![fileManager fileExistsAtPath:imgPath])
-    {
+    if(![fileManager fileExistsAtPath:imgPath]) {
         [self downloadImageForUrl:url];
         return NO;
     }
     return YES;
 }
 
--(UIImage*)imageWithUrl:(NSString*)url
-{
+
+- (UIImage *)imageWithUrl:(NSString *)url {
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *imgPath = [self filePathForImageAtUrl:url];
-    if(![fileManager fileExistsAtPath:imgPath])
-    {
+    if(![fileManager fileExistsAtPath:imgPath]) {
         [self downloadImageForUrl:url];
         return nil;
     }
@@ -40,17 +38,19 @@
     return img;
 }
 
--(NSString*)filePathForImageAtUrl:(NSString*)url
-{
+
+- (NSString *)filePathForImageAtUrl:(NSString *)url {
+    
     NSString *imageDirectory = [self cacheDirectory];
-    NSString *fileHash = [url md5];
+    NSString *fileHash = [url abtest_md5];
     
     NSString *imgPath = [imageDirectory stringByAppendingString:fileHash];
     return imgPath;
 }
 
--(void)downloadImageForUrl:(NSString*)remoteUrl
-{
+
+-(void)downloadImageForUrl:(NSString *)remoteUrl {
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *saveUrl = [self filePathForImageAtUrl:remoteUrl];
         
@@ -61,17 +61,20 @@
     });
 }
 
--(NSString*)cacheDirectory
-{
+
+-(NSString *)cacheDirectory {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *finalPath = [documentsDirectory stringByAppendingString:@"/ABTestImageCache/"];
     
     NSFileManager *fileManager= [NSFileManager defaultManager];
     BOOL isDir = true;
-    if(![fileManager fileExistsAtPath:finalPath isDirectory:&isDir])
-        if(![fileManager createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:NULL])
+    if(![fileManager fileExistsAtPath:finalPath isDirectory:&isDir]) {
+        if(![fileManager createDirectoryAtPath:finalPath withIntermediateDirectories:YES attributes:nil error:NULL]) {
             NSLog(@"ABTestLibrary:: Could not create image cache folder at %@", finalPath);
+            return nil;
+        }
+    }
     
     return finalPath;
 }

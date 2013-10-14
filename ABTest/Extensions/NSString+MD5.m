@@ -11,8 +11,7 @@
 
 @implementation NSString (MD5)
 
-- (NSString *) md5
-{
+- (NSString *)abtest_md5 {
     const char *cStr = [self UTF8String];
     unsigned char result[16];
     CC_MD5( cStr, strlen(cStr), result ); // This is the md5 call
@@ -25,8 +24,9 @@
             ];
 }
 
-- (NSString *)base64String
-{
+
+- (NSString *)abtest_base64String {
+    
     NSData *theData = [self dataUsingEncoding: NSASCIIStringEncoding];
     const uint8_t* input = (const uint8_t*)[theData bytes];
     NSInteger length = [theData length];
@@ -57,5 +57,6 @@
     
     return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 }
+
 @end
 

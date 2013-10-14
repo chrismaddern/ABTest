@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2155889160E8B5400EF97FE /* ABImageTestButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C2155888160E8B5400EF97FE /* ABImageTestButton.m */; };
-		C2155890160EA17200EF97FE /* ABTestImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C215588F160EA17200EF97FE /* ABTestImageCache.m */; };
-		C2155893160EA41100EF97FE /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = C2155892160EA41100EF97FE /* NSString+MD5.m */; };
+		835D4009180BA38C00B6CB36 /* ABTestSettings-Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 835D3FF3180BA38C00B6CB36 /* ABTestSettings-Default.plist */; };
+		835D400A180BA38C00B6CB36 /* ABImageTestButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D3FF6180BA38C00B6CB36 /* ABImageTestButton.m */; };
+		835D400B180BA38C00B6CB36 /* ABTestButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D3FF8180BA38C00B6CB36 /* ABTestButton.m */; };
+		835D400C180BA38C00B6CB36 /* ABTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D3FFB180BA38C00B6CB36 /* ABTestCase.m */; };
+		835D400D180BA38C00B6CB36 /* ABTestCaseOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D3FFD180BA38C00B6CB36 /* ABTestCaseOutcome.m */; };
+		835D400E180BA38C00B6CB36 /* ABTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D3FFF180BA38C00B6CB36 /* ABTestManager.m */; };
+		835D400F180BA38C00B6CB36 /* ABTestImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D4002180BA38C00B6CB36 /* ABTestImageCache.m */; };
+		835D4010180BA38C00B6CB36 /* NSObject+ABTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D4004180BA38C00B6CB36 /* NSObject+ABTest.m */; };
+		835D4011180BA38C00B6CB36 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 835D4006180BA38C00B6CB36 /* NSString+MD5.m */; };
+		83B6197B180BAB9E0040581B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B61979180BAB9E0040581B /* Default-568h@2x.png */; };
+		9B543229AD5A4717BC812A4D /* libPods-ABTestSampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7958A24CF71647E38664C4E8 /* libPods-ABTestSampleApp.a */; };
 		C2155899160EB30100EF97FE /* default_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C2155897160EB30100EF97FE /* default_button.png */; };
 		C215589F160FCDE000EF97FE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C215589E160FCDE000EF97FE /* icon.png */; };
 		C21558A1160FCDEF00EF97FE /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C21558A0160FCDEE00EF97FE /* icon@2x.png */; };
@@ -21,22 +29,29 @@
 		C29C068A160E3B3C00CC1E82 /* ABAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C0689160E3B3C00CC1E82 /* ABAppDelegate.m */; };
 		C29C068D160E3B3C00CC1E82 /* ABViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C068C160E3B3C00CC1E82 /* ABViewController.m */; };
 		C29C0690160E3B3C00CC1E82 /* ABViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C29C068E160E3B3C00CC1E82 /* ABViewController.xib */; };
-		C29C06A1160E3F3300CC1E82 /* ABTestSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29C06A0160E3F3300CC1E82 /* ABTestSettings.plist */; };
-		C29C06BB160E757C00CC1E82 /* ABTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C06B0160E757C00CC1E82 /* ABTestCase.m */; };
-		C29C06BC160E757C00CC1E82 /* ABTestCaseOutcome.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C06B2160E757C00CC1E82 /* ABTestCaseOutcome.m */; };
-		C29C06BD160E757C00CC1E82 /* ABTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C06B4160E757C00CC1E82 /* ABTestManager.m */; };
-		C29C06BE160E757C00CC1E82 /* NSObject+ABTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C06B7160E757C00CC1E82 /* NSObject+ABTest.m */; };
-		C29C06BF160E757C00CC1E82 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C06B9160E757C00CC1E82 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C29C06C2160E759500CC1E82 /* ABTestButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C29C06C1160E759500CC1E82 /* ABTestButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C2155887160E8B5400EF97FE /* ABImageTestButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABImageTestButton.h; sourceTree = "<group>"; };
-		C2155888160E8B5400EF97FE /* ABImageTestButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABImageTestButton.m; sourceTree = "<group>"; };
-		C215588E160EA17200EF97FE /* ABTestImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestImageCache.h; sourceTree = "<group>"; };
-		C215588F160EA17200EF97FE /* ABTestImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestImageCache.m; sourceTree = "<group>"; };
-		C2155891160EA41100EF97FE /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		C2155892160EA41100EF97FE /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		6534F0F7CF394C169F34C0F8 /* Pods-ABTestSampleApp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ABTestSampleApp.xcconfig"; path = "Pods/Pods-ABTestSampleApp.xcconfig"; sourceTree = "<group>"; };
+		7958A24CF71647E38664C4E8 /* libPods-ABTestSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABTestSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		835D3FF3180BA38C00B6CB36 /* ABTestSettings-Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ABTestSettings-Default.plist"; sourceTree = "<group>"; };
+		835D3FF5180BA38C00B6CB36 /* ABImageTestButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABImageTestButton.h; sourceTree = "<group>"; };
+		835D3FF6180BA38C00B6CB36 /* ABImageTestButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABImageTestButton.m; sourceTree = "<group>"; };
+		835D3FF7180BA38C00B6CB36 /* ABTestButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestButton.h; sourceTree = "<group>"; };
+		835D3FF8180BA38C00B6CB36 /* ABTestButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestButton.m; sourceTree = "<group>"; };
+		835D3FFA180BA38C00B6CB36 /* ABTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestCase.h; sourceTree = "<group>"; };
+		835D3FFB180BA38C00B6CB36 /* ABTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestCase.m; sourceTree = "<group>"; };
+		835D3FFC180BA38C00B6CB36 /* ABTestCaseOutcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestCaseOutcome.h; sourceTree = "<group>"; };
+		835D3FFD180BA38C00B6CB36 /* ABTestCaseOutcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestCaseOutcome.m; sourceTree = "<group>"; };
+		835D3FFE180BA38C00B6CB36 /* ABTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestManager.h; sourceTree = "<group>"; };
+		835D3FFF180BA38C00B6CB36 /* ABTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestManager.m; sourceTree = "<group>"; };
+		835D4001180BA38C00B6CB36 /* ABTestImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestImageCache.h; sourceTree = "<group>"; };
+		835D4002180BA38C00B6CB36 /* ABTestImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestImageCache.m; sourceTree = "<group>"; };
+		835D4003180BA38C00B6CB36 /* NSObject+ABTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABTest.h"; sourceTree = "<group>"; };
+		835D4004180BA38C00B6CB36 /* NSObject+ABTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABTest.m"; sourceTree = "<group>"; };
+		835D4005180BA38C00B6CB36 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		835D4006180BA38C00B6CB36 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		83B6197A180BAB9E0040581B /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-568h@2x.png"; sourceTree = "<group>"; };
 		C2155898160EB30100EF97FE /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/default_button.png; sourceTree = "<group>"; };
 		C215589E160FCDE000EF97FE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		C21558A0160FCDEE00EF97FE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
@@ -53,19 +68,6 @@
 		C29C068B160E3B3C00CC1E82 /* ABViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABViewController.h; sourceTree = "<group>"; };
 		C29C068C160E3B3C00CC1E82 /* ABViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABViewController.m; sourceTree = "<group>"; };
 		C29C068F160E3B3C00CC1E82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ABViewController.xib; sourceTree = "<group>"; };
-		C29C06A0160E3F3300CC1E82 /* ABTestSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ABTestSettings.plist; sourceTree = "<group>"; };
-		C29C06AF160E757C00CC1E82 /* ABTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestCase.h; sourceTree = "<group>"; };
-		C29C06B0160E757C00CC1E82 /* ABTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestCase.m; sourceTree = "<group>"; };
-		C29C06B1160E757C00CC1E82 /* ABTestCaseOutcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestCaseOutcome.h; sourceTree = "<group>"; };
-		C29C06B2160E757C00CC1E82 /* ABTestCaseOutcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestCaseOutcome.m; sourceTree = "<group>"; };
-		C29C06B3160E757C00CC1E82 /* ABTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestManager.h; sourceTree = "<group>"; };
-		C29C06B4160E757C00CC1E82 /* ABTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestManager.m; sourceTree = "<group>"; };
-		C29C06B6160E757C00CC1E82 /* NSObject+ABTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ABTest.h"; sourceTree = "<group>"; };
-		C29C06B7160E757C00CC1E82 /* NSObject+ABTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ABTest.m"; sourceTree = "<group>"; };
-		C29C06B8160E757C00CC1E82 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
-		C29C06B9160E757C00CC1E82 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
-		C29C06C0160E759500CC1E82 /* ABTestButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTestButton.h; sourceTree = "<group>"; };
-		C29C06C1160E759500CC1E82 /* ABTestButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTestButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,19 +78,70 @@
 				C29C067A160E3B3C00CC1E82 /* UIKit.framework in Frameworks */,
 				C29C067C160E3B3C00CC1E82 /* Foundation.framework in Frameworks */,
 				C29C067E160E3B3C00CC1E82 /* CoreGraphics.framework in Frameworks */,
+				9B543229AD5A4717BC812A4D /* libPods-ABTestSampleApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		835D3FF2180BA38C00B6CB36 /* ABTest */ = {
+			isa = PBXGroup;
+			children = (
+				835D3FF3180BA38C00B6CB36 /* ABTestSettings-Default.plist */,
+				835D3FF4180BA38C00B6CB36 /* Controls */,
+				835D3FF9180BA38C00B6CB36 /* Core */,
+				835D4000180BA38C00B6CB36 /* Extensions */,
+			);
+			name = ABTest;
+			path = ../ABTest;
+			sourceTree = "<group>";
+		};
+		835D3FF4180BA38C00B6CB36 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				835D3FF5180BA38C00B6CB36 /* ABImageTestButton.h */,
+				835D3FF6180BA38C00B6CB36 /* ABImageTestButton.m */,
+				835D3FF7180BA38C00B6CB36 /* ABTestButton.h */,
+				835D3FF8180BA38C00B6CB36 /* ABTestButton.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		835D3FF9180BA38C00B6CB36 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				835D3FFA180BA38C00B6CB36 /* ABTestCase.h */,
+				835D3FFB180BA38C00B6CB36 /* ABTestCase.m */,
+				835D3FFC180BA38C00B6CB36 /* ABTestCaseOutcome.h */,
+				835D3FFD180BA38C00B6CB36 /* ABTestCaseOutcome.m */,
+				835D3FFE180BA38C00B6CB36 /* ABTestManager.h */,
+				835D3FFF180BA38C00B6CB36 /* ABTestManager.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		835D4000180BA38C00B6CB36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				835D4001180BA38C00B6CB36 /* ABTestImageCache.h */,
+				835D4002180BA38C00B6CB36 /* ABTestImageCache.m */,
+				835D4003180BA38C00B6CB36 /* NSObject+ABTest.h */,
+				835D4004180BA38C00B6CB36 /* NSObject+ABTest.m */,
+				835D4005180BA38C00B6CB36 /* NSString+MD5.h */,
+				835D4006180BA38C00B6CB36 /* NSString+MD5.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C29C066A160E3B3C00CC1E82 = {
 			isa = PBXGroup;
 			children = (
-				C29C0696160E3B5A00CC1E82 /* ABTestLibrary */,
+				835D3FF2180BA38C00B6CB36 /* ABTest */,
 				C29C067F160E3B3C00CC1E82 /* ABTestSampleApp */,
 				C29C0678160E3B3C00CC1E82 /* Frameworks */,
 				C29C0676160E3B3C00CC1E82 /* Products */,
+				6534F0F7CF394C169F34C0F8 /* Pods-ABTestSampleApp.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +159,7 @@
 				C29C0679160E3B3C00CC1E82 /* UIKit.framework */,
 				C29C067B160E3B3C00CC1E82 /* Foundation.framework */,
 				C29C067D160E3B3C00CC1E82 /* CoreGraphics.framework */,
+				7958A24CF71647E38664C4E8 /* libPods-ABTestSampleApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +180,7 @@
 		C29C0680160E3B3C00CC1E82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83B61979180BAB9E0040581B /* Default-568h@2x.png */,
 				C21558A0160FCDEE00EF97FE /* icon@2x.png */,
 				C215589E160FCDE000EF97FE /* icon.png */,
 				C2155897160EB30100EF97FE /* default_button.png */,
@@ -137,56 +192,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C29C0696160E3B5A00CC1E82 /* ABTestLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				C29C06AE160E757C00CC1E82 /* Core */,
-				C29C06B5160E757C00CC1E82 /* Extensions */,
-				C29C06BA160E757C00CC1E82 /* Controls */,
-				C29C06A0160E3F3300CC1E82 /* ABTestSettings.plist */,
-			);
-			path = ABTestLibrary;
-			sourceTree = "<group>";
-		};
-		C29C06AE160E757C00CC1E82 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				C29C06AF160E757C00CC1E82 /* ABTestCase.h */,
-				C29C06B0160E757C00CC1E82 /* ABTestCase.m */,
-				C29C06B1160E757C00CC1E82 /* ABTestCaseOutcome.h */,
-				C29C06B2160E757C00CC1E82 /* ABTestCaseOutcome.m */,
-				C29C06B3160E757C00CC1E82 /* ABTestManager.h */,
-				C29C06B4160E757C00CC1E82 /* ABTestManager.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		C29C06B5160E757C00CC1E82 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C29C06B6160E757C00CC1E82 /* NSObject+ABTest.h */,
-				C29C06B7160E757C00CC1E82 /* NSObject+ABTest.m */,
-				C29C06B8160E757C00CC1E82 /* OpenUDID.h */,
-				C29C06B9160E757C00CC1E82 /* OpenUDID.m */,
-				C215588E160EA17200EF97FE /* ABTestImageCache.h */,
-				C215588F160EA17200EF97FE /* ABTestImageCache.m */,
-				C2155891160EA41100EF97FE /* NSString+MD5.h */,
-				C2155892160EA41100EF97FE /* NSString+MD5.m */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C29C06BA160E757C00CC1E82 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				C2155887160E8B5400EF97FE /* ABImageTestButton.h */,
-				C2155888160E8B5400EF97FE /* ABImageTestButton.m */,
-				C29C06C0160E759500CC1E82 /* ABTestButton.h */,
-				C29C06C1160E759500CC1E82 /* ABTestButton.m */,
-			);
-			path = Controls;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C29C0693160E3B3C00CC1E82 /* Build configuration list for PBXNativeTarget "ABTestSampleApp" */;
 			buildPhases = (
+				D7C80507189648B286EF0F95 /* Check Pods Manifest.lock */,
 				C29C0671160E3B3C00CC1E82 /* Sources */,
 				C29C0672160E3B3C00CC1E82 /* Frameworks */,
 				C29C0673160E3B3C00CC1E82 /* Resources */,
+				59A68C9088DF4513A2B3C2C9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,38 +248,79 @@
 			files = (
 				C29C0684160E3B3C00CC1E82 /* InfoPlist.strings in Resources */,
 				C29C0690160E3B3C00CC1E82 /* ABViewController.xib in Resources */,
-				C29C06A1160E3F3300CC1E82 /* ABTestSettings.plist in Resources */,
 				C2155899160EB30100EF97FE /* default_button.png in Resources */,
 				C215589F160FCDE000EF97FE /* icon.png in Resources */,
+				835D4009180BA38C00B6CB36 /* ABTestSettings-Default.plist in Resources */,
+				83B6197B180BAB9E0040581B /* Default-568h@2x.png in Resources */,
 				C21558A1160FCDEF00EF97FE /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		59A68C9088DF4513A2B3C2C9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ABTestSampleApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7C80507189648B286EF0F95 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C29C0671160E3B3C00CC1E82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835D400F180BA38C00B6CB36 /* ABTestImageCache.m in Sources */,
+				835D400E180BA38C00B6CB36 /* ABTestManager.m in Sources */,
+				835D400B180BA38C00B6CB36 /* ABTestButton.m in Sources */,
+				835D400A180BA38C00B6CB36 /* ABImageTestButton.m in Sources */,
+				835D4011180BA38C00B6CB36 /* NSString+MD5.m in Sources */,
 				C29C0686160E3B3C00CC1E82 /* main.m in Sources */,
 				C29C068A160E3B3C00CC1E82 /* ABAppDelegate.m in Sources */,
+				835D4010180BA38C00B6CB36 /* NSObject+ABTest.m in Sources */,
+				835D400C180BA38C00B6CB36 /* ABTestCase.m in Sources */,
 				C29C068D160E3B3C00CC1E82 /* ABViewController.m in Sources */,
-				C29C06BB160E757C00CC1E82 /* ABTestCase.m in Sources */,
-				C29C06BC160E757C00CC1E82 /* ABTestCaseOutcome.m in Sources */,
-				C29C06BD160E757C00CC1E82 /* ABTestManager.m in Sources */,
-				C29C06BE160E757C00CC1E82 /* NSObject+ABTest.m in Sources */,
-				C29C06BF160E757C00CC1E82 /* OpenUDID.m in Sources */,
-				C29C06C2160E759500CC1E82 /* ABTestButton.m in Sources */,
-				C2155889160E8B5400EF97FE /* ABImageTestButton.m in Sources */,
-				C2155890160EA17200EF97FE /* ABTestImageCache.m in Sources */,
-				C2155893160EA41100EF97FE /* NSString+MD5.m in Sources */,
+				835D400D180BA38C00B6CB36 /* ABTestCaseOutcome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		83B61979180BAB9E0040581B /* Default-568h@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83B6197A180BAB9E0040581B /* en */,
+			);
+			name = "Default-568h@2x.png";
+			sourceTree = "<group>";
+		};
 		C2155897160EB30100EF97FE /* default_button.png */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -351,10 +399,15 @@
 		};
 		C29C0694160E3B3C00CC1E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6534F0F7CF394C169F34C0F8 /* Pods-ABTestSampleApp.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ABTestSampleApp/ABTestSampleApp-Prefix.pch";
 				INFOPLIST_FILE = "ABTestSampleApp/ABTestSampleApp-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -362,10 +415,15 @@
 		};
 		C29C0695160E3B3C00CC1E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6534F0F7CF394C169F34C0F8 /* Pods-ABTestSampleApp.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ABTestSampleApp/ABTestSampleApp-Prefix.pch";
 				INFOPLIST_FILE = "ABTestSampleApp/ABTestSampleApp-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

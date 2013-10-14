@@ -11,9 +11,10 @@
 #import "ABTestImageCache.h"
 
 @interface ABImageTestButton : UIButton
-@property (nonatomic, retain) NSString* testCaseIdentifier;
-@property (nonatomic, retain) ABTestCase* testCase;
-@property (nonatomic, retain) NSString* controlValue;
+
+@property (nonatomic, retain) NSString *testCaseIdentifier;
+@property (nonatomic, retain) ABTestCase *testCase;
+@property (nonatomic, retain) NSString *controlValue;
 
 @property (nonatomic, retain) ABTestImageCache *imageCache;
 @property (nonatomic) BOOL shouldLoadNonControlFromUrl;

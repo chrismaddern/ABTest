@@ -10,11 +10,9 @@
 
 @implementation NSObject (ABTest)
 
--(NSString*)describeTestCase
-{
+- (NSString *)describeTestCase {
     // Colors
-    if([self isKindOfClass:[UIColor class]])
-    {
+    if([self isKindOfClass:[UIColor class]]) {
         const CGFloat *_components = CGColorGetComponents(((UIColor*)self).CGColor);
         CGFloat red     = _components[0];
         CGFloat green = _components[1];
@@ -23,16 +21,15 @@
         
         return [NSString stringWithFormat:@"%f,%f,%f,%f",red,green,blue,alpha];
     }
-    if([self isKindOfClass:[NSString class]])
-    {
+    
+    if([self isKindOfClass:[NSString class]]) {
         return (NSString*)self;
     }
-    if([self isKindOfClass:[NSNumber class]])
-    {
+    
+    if([self isKindOfClass:[NSNumber class]]) {
         return [NSString stringWithFormat:@"%@", self];
     }
-    else
-    {
+    else {
         @try {
             return [NSString stringWithFormat:@"%@", self];
         }

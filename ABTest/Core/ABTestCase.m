@@ -12,21 +12,18 @@
 @implementation ABTestCase
 @synthesize testCaseIdentifier, testCaseValue, isTesting;
 
--(id)initWithTestCase:(NSString*)testCaseId andControlValue:(id)controlObject
-{
+- (id)initWithTestCase:(NSString *)testCaseId andControlValue:(id)controlObject {
     self = [super init];
     
-    if(self)
-    {
+    if(self) {
         testCaseIdentifier = testCaseId;
         testCaseValue = [[ABTestManager testManager] valueForTestCase:testCaseId];
-        if(testCaseValue == nil)
-        {
+        
+        if(testCaseValue == nil) {
             isTesting = false;
             testCaseValue = controlObject;
         }
-        else
-        {
+        else {
             isTesting = true;
         }
     }
@@ -34,7 +31,7 @@
     return self;
 }
 
--(NSString*)value
+- (NSString *)value
 {
     return testCaseValue;
 }

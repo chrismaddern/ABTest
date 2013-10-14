@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (MD5)
-- (NSString *) md5;
-- (NSString *)base64String;
+- (NSString *)abtest_md5;
+- (NSString *)abtest_base64String;
 @end
