@@ -17,13 +17,13 @@ There is a basic Sample Application which contains examples of each of the ways 
 2. Change it's Class to either `ABTestButton` or `ABImageTestButton`
 3. Set the User Defined Runtime Attributes:
 
-```
-testCase -> the token of the test case
-default -> the control value and used when no test data is available
-type	-> "url" or "local" (UIImageTestButton only)
-```
+`testCase` -> the token of the test case
 
-<img src="http://cloud.chrismaddern.com/image/1V3X2w441o31/Screen%20Shot%202012-09-23%20at%2009.27.02.png">
+`default` -> the control value and used when no test data is available
+
+`type`	-> "url" or "local" (UIImageTestButton only)
+
+
 
 The button will report a positive outcome for that test case whenever it is tapped.
 
@@ -31,21 +31,21 @@ The button will report a positive outcome for that test case whenever it is tapp
 You can test anything that can be determined with a String using an ABTestCase in your own code.
 
 Code:
-
-    //Create a test case
-    ABTestCase *testCase = [[ABTestCase alloc] 
-        initWithTestCase:YOUR_TEST_CASE_ID
-        andControlValue:THE_DEFAULT_STRING_TO_FALL_BACK_ON];
-    NSString* testValue = [testCase value];
-    //Do whatever you want with testValue here 
+```objc
+// Create a test case
+ABTestCase *testCase = [[ABTestCase alloc] initWithTestCase:YOUR_TEST_CASE_ID
+                                            andControlValue:THE_DEFAULT_STRING_TO_FALL_BACK_ON];
+NSString* testValue = [testCase value];
+// Do whatever you want with testValue here 
+```
 
 And then to report the outcome…
-
-    //Something good has happened because of this value
-    ABTestCaseOutcome *outcome = [[ABTestCaseOutcome alloc] 
-        initWithTestCase:YOUR_TEST_CASE_ID
-        andOutcomeResponse:ABPositiveResponse];
-    [outcome send];
+```objc
+// Something good has happened because of this value
+ABTestCaseOutcome *outcome = [[ABTestCaseOutcome alloc] initWithTestCase:YOUR_TEST_CASE_ID
+                                                      andOutcomeResponse:ABPositiveResponse];
+[outcome send];
+```
 
 ## License
 
